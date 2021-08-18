@@ -1,0 +1,16 @@
+#server:#   port: 8999
+##eureka:#instances:#hostname: localhost#
+#spring:
+#application:
+#name: apigateway
+#cloud:
+#  gateway:
+#routes:
+#       -id: user_service
+#     uri: lb://user_service
+#     predicates:
+#        - Path=/user/**
+#       -id: contact_service
+#     uri: lb://contact_service
+#     predicates:
+#        - Path=/contact/**server:  port: 8999 eureka:  client:    serviceUrl:      defaultZone: http://localhost:8761/eureka/spring:  application:    name: apigateway  cloud:    gateway:      routes:      - id: user_service        uri: http://localhost:9001/        predicates:        - Path=/user/**      - id: contact_service        uri: http://localhost:9002/        predicates:        - Path=/contact/**
